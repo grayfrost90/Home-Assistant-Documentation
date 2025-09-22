@@ -1,10 +1,11 @@
 # Global Configurations
 ## Helpers
 There are 4 global helpers that control settings across the whole house:
-1. Home
-2. Heating Mode
-3. Holiday Heating
-4. Main Heating Switch
+1. [Home](#home)
+2. [Heating Mode](#heating-mode)
+3. [Holiday Heating](#holiday-heating)
+4. [Main Heating Switch](#main-heating-switch)
+5. [Away Temp Adjustment](#away-temp-adjustment)
 
 ### Home
 This is a template binary sensor that will return the inverse value of the Away helper. This is used in AHC to activate Guest mode if all tracked people are away. Manually setting the house to Home in the occupancy dashboard screen will set this entity to True.
@@ -25,9 +26,12 @@ When on, holiday heating schedules are followed
 ### Main Heating Switch
 Heating will only take place when this switch is on
 
+### Away Temp Adjustment
+Set by the [Proximity Update](#proximity-update) automation to adjust the away temperature
+
 ## Automations
 There are 2 global automations:
-1) Heating Mode
+1) [Heating Mode](#heating-mode-1)
 2) [Proximity Update](#proximity-update)
 
 ### Heating Mode
@@ -77,4 +81,19 @@ actions:
               entity_id: input_boolean.ahc_main_heating_switch
 ```
 ### Proximity Update
+AHC will drop the target temperature of a room by a set number of degrees if no one is detected to be at home - or if guest mode isn't activated.
+Tado has a feature that adjusts the temperature gradually depending on how far away from home you are - the away temperature decreases the further (and maybe longer) you are away from home, and then increases as you get closer to home.
 
+This is a feature I wanted to try and replicate, which this automation attempts to achieve.
+
+Using the [Proximity](https://www.home-assistant.io/integrations/proximity) integration, member of the house are tracked by their distance (meters) from home. As the Nearest person moves between set distances from home, this automation changes the value of the Proximity Helper, and re-runs all AHC automations tagged with 'Heating Control'. AHC is then configured to subtract the value of this helper from the comfort temperature of the room. The values and distances are as follows:
+
+|Distance	| Temperature Difference |
+|---------|------------------------|
+|0        |0                       |
+|3000	    |2                       |
+|7500	    |3                       |
+|15000	  |4                       |
+|30000	  |5                       |
+|64000	  |6                       |
+|64001+	  |7                       |
