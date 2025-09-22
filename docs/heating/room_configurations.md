@@ -122,7 +122,7 @@ This code loads the state of the `away_temp_adjustment` helper and the comfort t
 <img width="1031" height="822" alt="image" src="https://github.com/user-attachments/assets/f4128363-ea44-4368-9bd4-bb6ffa50013d" />
 
 8. Finally, in the On/Off Automation Options, enter the Main Heating Switch in the Winter Mode / Automation Toggle. This is the global switch to control the heating. 
-
+9. Once the Automation is saved, ensure it is tagged with the `Heating` tag and the `Heating Control` tag. The second one is important so that the proximity schedule fires the ADC automations to adjust the temperature based on the distance of people from home.
 
 
 
