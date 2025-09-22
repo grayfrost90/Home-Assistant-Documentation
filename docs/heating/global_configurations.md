@@ -86,14 +86,14 @@ Tado has a feature that adjusts the temperature gradually depending on how far a
 
 This is a feature I wanted to try and replicate, which this automation attempts to achieve.
 
-Using the [Proximity](https://www.home-assistant.io/integrations/proximity) integration, member of the house are tracked by their distance (meters) from home. As the Nearest person moves between set distances from home, this automation changes the value of the Proximity Helper, and re-runs all AHC automations tagged with 'Heating Control'. AHC is then configured to subtract the value of this helper from the comfort temperature of the room. The values and distances are as follows:
+Using the [Proximity](https://www.home-assistant.io/integrations/proximity) integration, members of the house are tracked by their distance (meters) from home. As the nearest person moves between set distances from home (Zones, but not to be confused with Home Assistant Zones), this automation changes the value of the [Away Temp Adjustment](#away-temp-adjustment) Helper, and re-runs all AHC automations tagged with 'Heating Control'. AHC is then configured to subtract the value of this helper from the comfort temperature of the room. The values and distances are as follows:
 
-|Distance	| Temperature Difference |
-|---------|------------------------|
-|0        |0                       |
-|3000	    |2                       |
-|7500	    |3                       |
-|15000	  |4                       |
-|30000	  |5                       |
-|64000	  |6                       |
-|64001+	  |7                       |
+|Zone  |Distance	| Temperature Difference |
+|----- |----------|------------------------|
+|Zone0 |0         |0                       |
+|Zone1 |3000	    |2                       |
+|Zone2 |7500	    |3                       |
+|Zone3 |15000	    |4                       |
+|Zone4 |30000	    |5                       |
+|Zone5 |64000	    |6                       |
+|Zone6 |64001+	  |7                       |
