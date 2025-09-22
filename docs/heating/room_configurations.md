@@ -88,4 +88,44 @@ Each room with a TRV needs an ADC Blueprint Automation configured as follows:
 ### Thermostats
 <img width="1023" height="631" alt="image" src="https://github.com/user-attachments/assets/3a4f878b-0254-414d-b200-dbd09b4f1d5d" />
 
-Pick the TRV for the room, all other settings are default. Note that the Room Temperature Sensor must be blank as the Tado TRVs (configured with HomeKit) can't do calibration.
+1. Pick the TRV for the room, all other settings are default. Note that the Room Temperature Sensor must be blank as the Tado TRVs (configured with HomeKit) can't do calibration.
+
+<img width="1034" height="490" alt="image" src="https://github.com/user-attachments/assets/9e66f351-b9a5-464e-941d-202d63691ab6" />
+
+2. In the Temperatures section, set the Eco Temperature to 12 and pick the Comfort Temperature Helper associated with the room.
+
+<img width="1033" height="613" alt="image" src="https://github.com/user-attachments/assets/694de986-27fe-4391-830e-97521473c5d3" />
+
+3. Under Persons, select all members of the household - note that this is now controlled separately to the occupancy for the rest of the house.
+4. Set the Guest Mode to use the Home entity
+
+<img width="1028" height="419" alt="image" src="https://github.com/user-attachments/assets/75bc0eaa-1f33-4889-815f-dee5a12b08ad" />
+
+5. Add the two schedules into the Schedules section. It's important that the Normal Schedule is at the top of the list and then the Holiday one, as the next field determines this....
+6. Set the Holiday Heating entity in the Scheduler Selector dropdown. This is where the schedule is picked. If Holiday Schedule is Off, then the First Schedule is picked, if it's on, the second Schedule is picked
+
+<img width="1031" height="519" alt="image" src="https://github.com/user-attachments/assets/76c01840-8ce2-4245-be16-020e0119a238" />
+
+7. Under the Away Mode section, toggle the Schdeuler Away Mode to `On`. Notice how there is no Away Temperature Offset configured? This is because this is handled by YAML. Switch to YAML view for the automation and add the following code, making sure to change the entity for the temperature in this line of code `set temperature = states('input_number.ahc_study_comfort_temp')`:
+```
+    input_away_offset: >
+      {% set offset = states('input_number.ahc_away_temp_adjustment') | int %}
+      {% set temperature = states('input_number.ahc_study_comfort_temp') | float
+      %}  {% if temperature - offset <= 12 %}
+        {{ temperature - 12 }}
+      {% else %}
+        {{ offset }}
+      {% endif %}
+```
+This code loads the state of the `away_temp_adjustment` helper and the comfort temperature of the room. It then compares the two, subtracting the offset from the comfort temp. If the result of this is greater than 12 (the minimum temp I want in a room) then it return the offset to ADC. If it's smaller than 12, then it returns the difference to ADC, so that the resulting temperature will be 12C.
+
+<img width="1031" height="822" alt="image" src="https://github.com/user-attachments/assets/f4128363-ea44-4368-9bd4-bb6ffa50013d" />
+
+8. Finally, in the On/Off Automation Options, enter the Main Heating Switch in the Winter Mode / Automation Toggle. This is the global switch to control the heating. 
+
+
+
+
+
+
+
