@@ -82,4 +82,10 @@ actions:
               entity_id: input_number.ahc_study_comfort_temp
 ```
 This keeps the temperature set to the value in the correct schedule
-### Advanced Heating Control
+
+## Advanced Heating Control
+Each room with a TRV needs an ADC Blueprint Automation configured as follows:
+### Thermostats
+<img width="1023" height="631" alt="image" src="https://github.com/user-attachments/assets/3a4f878b-0254-414d-b200-dbd09b4f1d5d" />
+
+Pick the TRV for the room, all other settings are default. Note that the Room Temperature Sensor must be blank as the Tado TRVs (configured with HomeKit) can't do calibration.
