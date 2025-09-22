@@ -15,5 +15,5 @@ The TRVs are controlled by the HomeKit integration in Home Assistant - this is a
 ## Configuration
 ### Heating
 The heating control is split into two main categories:
-1. [Global configuration](docs/heating/global_configurations.md) helpers and automations. These adjust settings that are common to all room based automations
+1. [Global configuration](global_configurations.md) helpers and automations. These adjust settings that are common to all room based automations
 2. Room based schedules, controlled via the Advanced Heating Control automation blueprint, and the helpers/automations to support it. These are replicated for each room with a Tado TRV
