@@ -110,8 +110,8 @@ Each room with a TRV needs an ADC Blueprint Automation configured as follows:
 ```
     input_away_offset: >
       {% set offset = states('input_number.ahc_away_temp_adjustment') | int %}
-      {% set temperature = states(input_temperature_comfort) | float %}  {% if
-      temperature - offset <= 12 %}
+      {% set temperature = states(input_temperature_comfort) | float %}
+      {% if temperature - offset <= 12 %}
         {{ temperature - 12 }}
       {% else %}
         {{ offset }}
