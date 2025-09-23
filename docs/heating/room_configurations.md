@@ -117,7 +117,7 @@ Each room with a TRV needs an ADC Blueprint Automation configured as follows:
         {{ offset }}
       {% endif %}
 ```
-This code loads the state of the `away_temp_adjustment` helper and the comfort temperature of the room, already defined in the blueprint. It then compares the two, subtracting the offset from the comfort temp. If the result of this is greater than 12 (the minimum temp I want in a room) then it return the offset to ADC. If it's smaller than 12, then it returns the difference to ADC, so that the resulting temperature will be 12C.
+This code loads the state of the `away_temp_adjustment` helper and the comfort temperature of the room, already defined in the blueprint - `input_temperature_comfort`. It then compares the two, subtracting the offset from the comfort temp. If the result of this is greater than 12 (the minimum temp I want in a room) then it return the offset to ADC. If it's smaller than 12, then it returns the difference to ADC, so that the resulting temperature will be 12C.
 
 <img width="1031" height="822" alt="image" src="https://github.com/user-attachments/assets/f4128363-ea44-4368-9bd4-bb6ffa50013d" />
 
