@@ -18,12 +18,12 @@ An input select helper toggled by a Dashboard selection that controls which sche
 
 <img width="397" height="161" alt="image" src="https://github.com/user-attachments/assets/ea4e403e-e844-4291-966a-b3bb485f8dd1" />
 
-Moving between the options will trigger the Heating Mode automation that will toggle the following helpers on or off:
+Moving between the options will trigger the Heating Mode automation that will toggle the following two helpers on or off:
 
-### Holiday Heating
+#### Holiday Heating
 When on, holiday heating schedules are followed
 
-### Main Heating Switch
+#### Main Heating Switch
 Heating will only take place when this switch is on
 
 ### Away Temp Adjustment
