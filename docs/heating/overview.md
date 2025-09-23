@@ -8,7 +8,7 @@ The heating setup uses Tado TRVs and has normally all been controlled by Tado. T
 4. Tado relies on an internet connection, so if the internet is down, the schedules don't work. Moving all the schedules to Home Assistant would remove this dependency
 
 ### New Architecture
-<img width="1213" height="758" alt="image" src="https://github.com/user-attachments/assets/dad84ec6-f082-463e-85bf-6172387725c6" />
+<img width="1190" height="738" alt="image" src="https://github.com/user-attachments/assets/5a212a3a-dbbf-4946-bf1d-52038f6518e4" />
 
 The TRVs are controlled by the HomeKit integration in Home Assistant - this is all local control on the LAN. Unfortunately, Hot Water control still needs to go via the Tado Cloud integration as this entity does not exist in the HomeKit integration.
 
