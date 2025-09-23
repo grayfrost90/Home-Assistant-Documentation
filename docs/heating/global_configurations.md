@@ -107,4 +107,4 @@ For each 'Zone' distance a trigger is created
 
 <img width="1581" height="886" alt="image" src="https://github.com/user-attachments/assets/be76d42d-033f-4f27-88d6-92385a1b4842" />
 
-Then using a Choose action, the Away Temp Adjustment helper is updated. Importantly, right at the end all AHC automationed labelled 'Heating Control' are fired.
+Then using a Choose action, the Away Temp Adjustment helper is updated. Importantly, right at the end all AHC automations labelled 'Heating Control' are fired.
