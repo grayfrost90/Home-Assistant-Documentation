@@ -106,18 +106,18 @@ Each room with a TRV needs an ADC Blueprint Automation configured as follows:
 
 <img width="1031" height="519" alt="image" src="https://github.com/user-attachments/assets/76c01840-8ce2-4245-be16-020e0119a238" />
 
-7. Under the Away Mode section, toggle the Schdeuler Away Mode to `On`. Notice how there is no Away Temperature Offset configured? This is because this is handled by YAML. Switch to YAML view for the automation and add the following code, making sure to change the entity for the temperature in this line of code `set temperature = states('input_number.ahc_study_comfort_temp')`:
+7. Under the Away Mode section, toggle the Schdeuler Away Mode to `On`. Notice how there is no Away Temperature Offset configured? This is because this is handled by YAML. Switch to YAML view for the automation and add the following code:
 ```
     input_away_offset: >
       {% set offset = states('input_number.ahc_away_temp_adjustment') | int %}
-      {% set temperature = states('input_number.ahc_study_comfort_temp') | float
-      %}  {% if temperature - offset <= 12 %}
+      {% set temperature = states(input_temperature_comfort) | float %}  {% if
+      temperature - offset <= 12 %}
         {{ temperature - 12 }}
       {% else %}
         {{ offset }}
       {% endif %}
 ```
-This code loads the state of the `away_temp_adjustment` helper and the comfort temperature of the room. It then compares the two, subtracting the offset from the comfort temp. If the result of this is greater than 12 (the minimum temp I want in a room) then it return the offset to ADC. If it's smaller than 12, then it returns the difference to ADC, so that the resulting temperature will be 12C.
+This code loads the state of the `away_temp_adjustment` helper and the comfort temperature of the room, already defined in the blueprint. It then compares the two, subtracting the offset from the comfort temp. If the result of this is greater than 12 (the minimum temp I want in a room) then it return the offset to ADC. If it's smaller than 12, then it returns the difference to ADC, so that the resulting temperature will be 12C.
 
 <img width="1031" height="822" alt="image" src="https://github.com/user-attachments/assets/f4128363-ea44-4368-9bd4-bb6ffa50013d" />
 
