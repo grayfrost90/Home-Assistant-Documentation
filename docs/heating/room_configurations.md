@@ -119,10 +119,14 @@ Each room with a TRV needs an ADC Blueprint Automation configured as follows:
 ```
 This code loads the state of the `away_temp_adjustment` helper and the comfort temperature of the room, already defined in the blueprint - `input_temperature_comfort`. It then compares the two, subtracting the offset from the comfort temp. If the result of this is greater than 12 (the minimum temp I want in a room) then it return the offset to ADC. If it's smaller than 12, then it returns the difference to ADC, so that the resulting temperature will be 12C.
 
+<img width="1032" height="262" alt="image" src="https://github.com/user-attachments/assets/ff11130c-5cda-4f9d-b8ed-6181abdc24e5" />
+
+8. Set the Frost Protection. This will force the temperature to be 12C if away for more than a day. Helpful if we're away but within the Proximity distances less than 64km.
+   
 <img width="1031" height="822" alt="image" src="https://github.com/user-attachments/assets/f4128363-ea44-4368-9bd4-bb6ffa50013d" />
 
-8. Finally, in the On/Off Automation Options, enter the Main Heating Switch in the Winter Mode / Automation Toggle. This is the global switch to control the heating. 
-9. Once the Automation is saved, ensure it is tagged with the `Heating` tag and the `Heating Control` tag. The second one is important so that the proximity schedule fires the ADC automations to adjust the temperature based on the distance of people from home.
+9. Finally, in the On/Off Automation Options, enter the Main Heating Switch in the Winter Mode / Automation Toggle. This is the global switch to control the heating. 
+10. Once the Automation is saved, ensure it is tagged with the `Heating` tag and the `Heating Control` tag. The second one is important so that the proximity schedule fires the ADC automations to adjust the temperature based on the distance of people from home.
 
 
 
