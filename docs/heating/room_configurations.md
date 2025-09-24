@@ -47,6 +47,10 @@ triggers:
     entity_id:
       - input_boolean.ahc_holiday_heating
 ```
+Add in a condition that checks if the schedules are on. This stops errors in the logs whereby the `target_temp` attribute disappears when the schedule is off:
+
+<img width="852" height="286" alt="image" src="https://github.com/user-attachments/assets/c0ef71f2-111f-443f-a6d7-94e22129885e" />
+
 The actions that take place depend on the state of the Holiday Heating Helper
 1) If the Holiday Heating switch is on, then Set the Comfort temp to be the value of the `target_temp` in the Holiday Schedule
 2) If the Holiday Heating switch is of, then Set the Comfort temp to be the value of the `target_temp` in the Normal Schedule
