@@ -9,6 +9,7 @@ There are 3 helpers that a room requires:
 
 ### Comfort Temp
 This is an input_number helper and should be configured as follows:
+
 <img width="502" height="667" alt="image" src="https://github.com/user-attachments/assets/17444a9e-d4cb-4711-b6d6-4037cfde8587" />
 
 ### Schedule Normal/Holiday
