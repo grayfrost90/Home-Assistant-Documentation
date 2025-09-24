@@ -96,9 +96,9 @@ Using the [Proximity](https://www.home-assistant.io/integrations/proximity) inte
 |Zone3 |15000	    |4                       |
 |Zone4 |30000	    |5                       |
 |Zone5 |64000	    |6                       |
-|Zone6 |64001+	  |25                      |
+|Zone6 |64001+	  |12                      |
 
-Setting Zone6 to be 25 will ensure that, regardless of the target temp, the resulting value of `target temp - away temp adjustment` will always be less than 12, and therefore the away temp adjustment in [AHC](/docs/heating/room_configurations.md#advanced-heating-control) will set the temp to 12.
+Setting Zone6 to be 12 will ensure that, regardless of the target temp, the resulting value of `target temp - away temp adjustment` will always be less than 12, and therefore the away temp adjustment in [AHC](/docs/heating/room_configurations.md#advanced-heating-control) will set the temp to 12.
 
 <img width="1562" height="708" alt="image" src="https://github.com/user-attachments/assets/67ae7a9a-fb22-42b0-9ad5-cd6068cb22c8" />
 
