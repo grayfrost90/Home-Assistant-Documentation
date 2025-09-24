@@ -18,5 +18,4 @@ The heating control is split into two main categories:
 2. [Room configurations](room_configurations.md). Controlled via the [Advanced Heating Control](https://github.com/panhans/HomeAssistant/blob/main/blueprints/automation/panhans/advanced_heating_control.yaml) (AHC) automation blueprint, and the helpers/automations to support it. These are replicated for each room with a Tado TRV
 
 ### Setting up a new room/migrating from Tado
-To move a room from being Tado controlled to local, follow these steps:
-- [Migrating a Room/TRV](migrating.md)
+To move a room from being Tado controlled to local, follow these steps: [Migrating a Room/TRV](migrating.md)
