@@ -3,9 +3,9 @@ Each room requires a set of helpers and automations for the heating to work. Thi
 
 ## Helpers
 There are 3 helpers that a room requires:
-1) [Comfort Temp](#comfort-temp). Used by ADC to set the target temperature for the room
-2) [Schedule Normal](#schedule-normalholiday). A Schedule helper that tells ADC when to turn the heating on, if the [Heating Mode](global_configurations.md#heating-mode) is set to Normal
-3) [Schedule Holiday](#schedule-normalholiday). A Schedule helper that tells ADC when to turn the heating on, if the [Heating Mode](global_configurations.md#heating-mode) is set to Schedule
+1) [Comfort Temp](#comfort-temp), named `AHC - <Room> Comfort Temp`. Used by ADC to set the target temperature for the room
+2) [Schedule Normal](#schedule-normalholiday), named `AHC - <Room> Schedule Normal`. A Schedule helper that tells ADC when to turn the heating on, if the [Heating Mode](global_configurations.md#heating-mode) is set to Normal
+3) [Schedule Holiday](#schedule-normalholiday) named `AHC - <Room> Schedule Holiday`. A Schedule helper that tells ADC when to turn the heating on, if the [Heating Mode](global_configurations.md#heating-mode) is set to Schedule
 
 ### Comfort Temp
 This is an input_number helper and should be configured as follows:
@@ -21,8 +21,8 @@ This additional data is used later in the [target temp](#target-temp) automation
 
 ## Automations
 Each Room requires the following automations:
-1) [Target Temp](#target-temp). Used to adjust the comfort temp helper that ADC uses to set the room temperature to.
-2) [Advanced Heating Control](#advanced-heating-control). The main component that controls the climate entities, this is configured from a Blueprint
+1) [Target Temp](#target-temp), named `AHC - <Room> Target Temp`. Used to adjust the comfort temp helper that ADC uses to set the room temperature to.
+2) [Advanced Heating Control](#advanced-heating-control), named `AHC - <Room> Heating`. The main component that controls the climate entities, this is configured from a Blueprint
 
 ### Target Temp
 This automation allows for different comfort temperatures to be set for different times of day in a heating schedule. This allows for more control and mimics the original Tado functionality.
