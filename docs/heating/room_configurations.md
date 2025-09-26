@@ -10,7 +10,18 @@ There are 3 helpers that a room requires:
 ### Comfort Temp
 This is an input_number helper and should be configured as follows:
 
-<img width="502" height="667" alt="image" src="https://github.com/user-attachments/assets/17444a9e-d4cb-4711-b6d6-4037cfde8587" />
+|Field|Input|
+|---|---|
+|Name|`AHC - <Room> Comfort Temp`|
+|Icon|`mdi:thermometer`|
+|Minimum value|`12`|
+|Maxinmum value|`25`|
+|Display mode|`Input field`|
+|Step size|`0.5`|
+|Unit of measurement|`°C`|
+
+<img width="484" height="650" alt="image" src="https://github.com/user-attachments/assets/100fedc6-d3bf-420d-83bc-5f6e12ab7b28" />
+
 
 ### Schedule Normal/Holiday
 Two schedules for heating as explained. These define the times, and importantly temperature, when the heating is turned on. It's important that each time block has Additional data consisting of `target_temp: temp` where `temp` is the desired temperature for that time:
