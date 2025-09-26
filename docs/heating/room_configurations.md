@@ -27,10 +27,10 @@ Once created, update the helper with the following:
 
 ### Schedule Normal/Holiday
 Two schedules for heating as explained with the following field data:
-|Field|Input|
-|---|---|
-|Name|`AHC - <Room> Schedule Normal/Holiday`|
-|Icon|`mdi:calendar-clock`|
+|Field|Input Normal|Input Holiday
+|---|---|---|
+|Name|`AHC - <Room> Schedule Normal`|`AHC - <Room> Schedule Holiday`|
+|Icon|`mdi:calendar-clock`|`mdi:bed-clock`|
 
 The scedhules define the times, and importantly temperature, when the heating is turned on. It's important that each time block has Additional data consisting of `target_temp: temp` where `temp` is the desired temperature for that time:
 
