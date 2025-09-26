@@ -20,11 +20,6 @@ This is an input_number helper and should be configured as follows:
 |Step size|`0.5`|
 |Unit of measurement|`°C`|
 
-Once created, update the helper with the following:
-- Category: `Heating`
-- Label: `Heating`
-- Area: The area specific for the helper created
-
 ### Schedule Normal/Holiday
 Two schedules for heating as explained with the following field data:
 |Field|Input Normal|Input Holiday
@@ -37,6 +32,11 @@ The scedhules define the times, and importantly temperature, when the heating is
 <img width="394" height="574" alt="image" src="https://github.com/user-attachments/assets/cd239547-83cd-4b64-967d-b15e886f89c5" />
 
 This additional data is used later in the [target temp](#target-temp) automation
+
+Once created, update the helpers with the following:
+- Category: `Heating`
+- Label: `Heating`
+- Area: The area specific for the helper created
 
 ## Automations
 Each Room requires the following automations:
