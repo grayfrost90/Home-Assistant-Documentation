@@ -20,8 +20,10 @@ This is an input_number helper and should be configured as follows:
 |Step size|`0.5`|
 |Unit of measurement|`°C`|
 
-<img width="484" height="650" alt="image" src="https://github.com/user-attachments/assets/100fedc6-d3bf-420d-83bc-5f6e12ab7b28" />
-
+Once created, update the helper with the following:
+- Category: `Heating`
+- Label: `Heating`
+- Area: The area specific for the helper created
 
 ### Schedule Normal/Holiday
 Two schedules for heating as explained. These define the times, and importantly temperature, when the heating is turned on. It's important that each time block has Additional data consisting of `target_temp: temp` where `temp` is the desired temperature for that time:
