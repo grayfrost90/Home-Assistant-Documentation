@@ -21,7 +21,39 @@ These are the steps to take to migrate a room from being Tado controlled to bein
 6) Add the [automations](room_configurations.md#automations) for the room
 7) Edit the Home Dashboard and update the card for the room to point to the HomeKit TRV for the following sections:
     - Temperature
-    - Badge
+    - Badge. The following additions between the comments need to be made on the badge icon, substituting the relevent TRV:
+      ```yaml
+      badge_icon: >-
+      {% if is_state_attr('climate.tado_smart_radiator_thermostat_va3781111808',
+      'hvac_action', 'heating') and 
+      is_state('binary_sensor.boiler_power_power_state', 'on')
+      ##########add##########
+      and is_state('climate.tado_smart_radiator_thermostat_va3781111808', 'heat')
+      #######################
+      %}
+        mdi:fire
+      {% elif
+      is_state_attr('climate.tado_smart_radiator_thermostat_va3781111808',
+      'hvac_action', 'heating') and 
+      is_state('binary_sensor.boiler_power_power_state', 'off')
+      ##########add##########
+      and is_state('climate.tado_smart_radiator_thermostat_va3781111808', 'heat')
+      #######################
+      %}
+        mdi:fire
+      {% elif
+      is_state_attr('climate.tado_smart_radiator_thermostat_va3781111808',
+      'hvac_action', 'idle')
+      ##########add##########
+      and is_state('climate.tado_smart_radiator_thermostat_va3781111808', 'heat')
+      #######################
+      %}
+        mdi:fire
+      {% else %}
+
+
+      {% endif %}
+      ```
     - Climate Control
 8) Edit the Room Dashboard and update the the following cards to point to the HomeKit TRV:
     - Temperature
