@@ -30,9 +30,9 @@ This control can be found in two places:
   
 ## Away Behaviour
 There are a few factors that change and affect what happens to the heating when no one is at home. In order for the heating to enter Away Mode, either of the following states need to be true:
-1) **Person detection:** If all members of the household are deemed to be away AND the house occupancy is on Auto (note that people need to added to both the household group AND each AHC Room Automation for this to work)
-2) **House Occupancy Mode:** If the house occupancy mode is manually set to Away or Vacation
-3) **Heating Schedule:** The heating needs to be running either the Normal or Holiday schedules
+1. **Person detection:** If all members of the household are deemed to be away AND the house occupancy is on Auto (note that people need to added to both the household group AND each AHC Room Automation for this to work)
+2. **House Occupancy Mode:** If the house occupancy mode is manually set to Away or Vacation
+3. **Heating Schedule:** The heating needs to be running either the Normal or Holiday schedules
 
 Upon entering away mode, the heating will do the following:
 1) **Proximity:** As the nearest person to home moves away from home, the target temperature of all rooms will drop, eventually reaching 12C, if they are far enough from home
