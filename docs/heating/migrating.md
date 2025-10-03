@@ -8,18 +8,18 @@ These are the steps to take to migrate a room from being Tado controlled to bein
 
 ### Process
 #### Tado App Changes
-1) Change the Schedule for the room in the Tado App to be 'Mon, Tue, Wed, Thu, Fri, Sat, Sun'. This should result in the room being Off all day, every day
-2) Turn off the Away Temperature. I'm not sure this is needed, but do it for completeness
-3) Ensure Geofencing is set to Home. This is a one time thing for the whole of Tado
+1. Change the Schedule for the room in the Tado App to be 'Mon, Tue, Wed, Thu, Fri, Sat, Sun'. This should result in the room being Off all day, every day
+2. Turn off the Away Temperature. I'm not sure this is needed, but do it for completeness
+3. Ensure Geofencing is set to Home. This is a one time thing for the whole of Tado
 
 #### Home Assistant Setup
-4) Disable the Zone for the room in the Tado integration 
-5) Add the [helpers](room_configurations.md#helpers) for the room
+4. Disable the Zone for the room in the Tado integration 
+5. Add the [helpers](room_configurations.md#helpers) for the room
     - Copy all the schedules from the Tado app to the schedule helpers as follows:
         - Mon-Fri, Sat, Sun > Normal
         - Mon-Sun > Holiday
-6) Add the [automations](room_configurations.md#automations) for the room
-7) Edit the Home Dashboard and update the card for the room to point to the HomeKit TRV for the following sections:
+6. Add the [automations](room_configurations.md#automations) for the room
+7. Edit the Home Dashboard and update the card for the room to point to the HomeKit TRV for the following sections:
     - Temperature
     - Badge. The following additions between the comments need to be made on the badge icon, substituting the relevent TRV:
       ```yaml
@@ -55,8 +55,8 @@ These are the steps to take to migrate a room from being Tado controlled to bein
       {% endif %}
       ```
     - Climate Control
-8) Edit the Room Dashboard and update the the following cards to point to the HomeKit TRV:
+8. Edit the Room Dashboard and update the the following cards to point to the HomeKit TRV:
     - Temperature
     - Humidity
     - Climate
-9) Edit the Heating Dashboard and update the climate card with the HomeKit TRV
+9. Edit the Heating Dashboard and update the climate card with the HomeKit TRV
