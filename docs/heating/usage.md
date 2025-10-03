@@ -10,7 +10,7 @@ Each room has two schedules, Normal and Holiday. Normal are the main schedules, 
 2. Find the schedule to edit, e.g. AHC - Dining Room Schedule Normal, and open it
 3. Click the cog in the top right corner, this will open the weekly schedule
 4. By clicking on a blue section, the time and `target_temp ` can be adjusted. Alternatively, the times can be edited by dragging the schedule
-5. IMPORTANT! each schedule block must have a `target_temp ` set in the additional data section:
+5. **IMPORTANT!** each schedule block must have a `target_temp ` set in the additional data section:
    <img width="557" height="682" alt="image" src="https://github.com/user-attachments/assets/f4ad5fda-dc16-4aaa-8624-133f47c1404e" />
 
    this is used by the automations to set the target temperature for the schedule block
