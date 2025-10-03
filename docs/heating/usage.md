@@ -36,4 +36,4 @@ There are a few factors that change and affect what happens to the heating when 
 
 Upon entering away mode, the heating will do the following:
 1) **Proximity:** As the nearest person to home moves away from home, the target temperature of all rooms will drop, eventually reaching 12C, if they are far enough from home
-2) **Time:** Regardless of proximity, if all people are away from home for more than 1 day, then the target temperature of all rooms will be set to 12C. This will result in the house not pre-heating on return **something I need to look at**
+2) **Time:** Regardless of proximity, if all people are away from home for more than 1 day, then the target temperature of all rooms will be set to 12C. This will result in the house not pre-heating on return **(something I need to look at)**
