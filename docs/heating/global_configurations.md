@@ -31,8 +31,8 @@ Set by the [Proximity Update](#proximity-update) automation to adjust the away t
 
 ## Automations
 There are 2 global automations:
-1) [Heating Mode](#heating-mode-1)
-2) [Proximity Update](#proximity-update)
+1. [Heating Mode](#heating-mode-1)
+2. [Proximity Update](#proximity-update)
 
 ### Heating Mode
 The automation is triggered by a change in the Heating Mode Helper - moving between Normal, Holiday and Off. When triggered the autmation toggles the Holiday Heating and Main Heating Switch Helpers accordingly:
