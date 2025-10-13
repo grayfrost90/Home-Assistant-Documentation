@@ -6,6 +6,7 @@ There are 4 global helpers that control settings across the whole house:
 3. [Holiday Heating](#holiday-heating)
 4. [Main Heating Switch](#main-heating-switch)
 5. [Away Temp Adjustment](#away-temp-adjustment)
+6. [Unavailable Safety Trigger](#unavailable-saftey-trigger)
 
 ### Home
 This is a template binary sensor that will return the inverse value of the Away helper. This is used in AHC to activate Guest mode if all tracked people are away. Manually setting the house to Home in the occupancy dashboard screen will set this entity to True.
@@ -108,3 +109,36 @@ For each 'Zone' distance a trigger is created
 <img width="1581" height="886" alt="image" src="https://github.com/user-attachments/assets/be76d42d-033f-4f27-88d6-92385a1b4842" />
 
 Then using a Choose action, the Away Temp Adjustment helper is updated. Importantly, right at the end all AHC automations labelled 'Heating Control' are fired.
+
+### Unavailable Safety Trigger
+Sometimes the TRVs go offline - not sure why. If this happens during a schedule change then when the TRV comes back online it will resume on it's previous state. To overcome this, there is an automation than triggers on any TRV changing from state `unavailable` that fires all automations with the `Heating Control` label.
+
+```
+alias: AHC - Trigger AHC on Available
+description: >-
+  when a TRV becomes available from being unavailable, trigger the AHC
+  automations. This catches when a device might be offline during the
+  temp/schedule change
+triggers:
+  - trigger: state
+    entity_id:
+      - climate.tado_smart_radiator_thermostat_va3831574528
+      - climate.tado_smart_radiator_thermostat_va1018848256
+      - climate.tado_smart_radiator_thermostat_va2495243264
+      - climate.tado_smart_radiator_thermostat_va0224538624
+      - climate.tado_smart_radiator_thermostat_va1314992128
+      - climate.tado_smart_radiator_thermostat_va0173289472
+      - climate.tado_smart_radiator_thermostat_va3521733632
+      - climate.tado_smart_radiator_thermostat_va1398878208
+      - climate.tado_smart_radiator_thermostat_va3781111808
+    from: unavailable
+conditions: []
+actions:
+  - action: automation.trigger
+    metadata: {}
+    data:
+      skip_condition: true
+    target:
+      label_id: heating_control
+mode: single
+```
