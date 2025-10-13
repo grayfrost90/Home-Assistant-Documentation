@@ -6,7 +6,7 @@ There are 4 global helpers that control settings across the whole house:
 3. [Holiday Heating](#holiday-heating)
 4. [Main Heating Switch](#main-heating-switch)
 5. [Away Temp Adjustment](#away-temp-adjustment)
-6. [Unavailable Safety Trigger](#unavailable-saftey-trigger)
+6. [Unavailable Safety Trigger](#unavailable-safety-trigger)
 
 ### Home
 This is a template binary sensor that will return the inverse value of the Away helper. This is used in AHC to activate Guest mode if all tracked people are away. Manually setting the house to Home in the occupancy dashboard screen will set this entity to True.
