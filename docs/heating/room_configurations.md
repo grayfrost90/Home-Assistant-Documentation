@@ -130,19 +130,23 @@ Each room with a TRV needs an ADC Blueprint Automation configured as follows:
 
 2. In the Temperatures section, set the Eco Temperature to 12 and pick the Comfort Temperature Helper associated with the room.
 
+<img width="1031" height="522" alt="image" src="https://github.com/user-attachments/assets/d34ade18-ae47-4531-8271-20748b0a1561" />
+
+3. Add the Boost helper into the Party mode section
+
 <img width="1033" height="613" alt="image" src="https://github.com/user-attachments/assets/694de986-27fe-4391-830e-97521473c5d3" />
 
-3. Under Persons, select all members of the household - note that this is now controlled separately to the occupancy for the rest of the house.
-4. Set the Guest Mode to use the Home entity
+4. Under Persons, select all members of the household - note that this is now controlled separately to the occupancy for the rest of the house.
+5. Set the Guest Mode to use the Home entity
 
 <img width="1028" height="419" alt="image" src="https://github.com/user-attachments/assets/75bc0eaa-1f33-4889-815f-dee5a12b08ad" />
 
-5. Add the two schedules into the Schedules section. It's important that the Normal Schedule is at the top of the list and then the Holiday one, as the next field determines this....
-6. Set the Holiday Heating entity in the Scheduler Selector dropdown. This is where the schedule is picked. If Holiday Schedule is Off, then the First Schedule is picked, if it's on, the second Schedule is picked
+6. Add the two schedules into the Schedules section. It's important that the Normal Schedule is at the top of the list and then the Holiday one, as the next field determines this....
+7. Set the Holiday Heating entity in the Scheduler Selector dropdown. This is where the schedule is picked. If Holiday Schedule is Off, then the First Schedule is picked, if it's on, the second Schedule is picked
 
 <img width="1031" height="519" alt="image" src="https://github.com/user-attachments/assets/76c01840-8ce2-4245-be16-020e0119a238" />
 
-7. Under the Away Mode section, toggle the Schdeuler Away Mode to `On`. Notice how there is no Away Temperature Offset configured? This is because this is handled by YAML. Switch to YAML view for the automation and add the following code:
+8. Under the Away Mode section, toggle the Schdeuler Away Mode to `On`. Notice how there is no Away Temperature Offset configured? This is because this is handled by YAML. Switch to YAML view for the automation and add the following code:
 ```
     input_away_offset: >
       {% set offset = states('input_number.ahc_away_temp_adjustment') | int %}
@@ -157,12 +161,12 @@ This code loads the state of the `away_temp_adjustment` helper and the comfort t
 
 <img width="1032" height="262" alt="image" src="https://github.com/user-attachments/assets/ff11130c-5cda-4f9d-b8ed-6181abdc24e5" />
 
-8. Set the Frost Protection. This will force the temperature to be 12C if away for more than a day. Helpful if we're away but within the Proximity distances less than 64km.
+9. Set the Frost Protection. This will force the temperature to be 12C if away for more than a day. Helpful if we're away but within the Proximity distances less than 64km.
    
 <img width="1031" height="822" alt="image" src="https://github.com/user-attachments/assets/f4128363-ea44-4368-9bd4-bb6ffa50013d" />
 
-9. Finally, in the On/Off Automation Options, enter the Main Heating Switch in the Winter Mode / Automation Toggle. This is the global switch to control the heating. 
-10. Once the Automation is saved, ensure it is tagged with the `Heating` tag and the `Heating Control` tag. The second one is important so that the proximity schedule fires the ADC automations to adjust the temperature based on the distance of people from home.
+10. Finally, in the On/Off Automation Options, enter the Main Heating Switch in the Winter Mode / Automation Toggle. This is the global switch to control the heating. 
+11. Once the Automation is saved, ensure it is tagged with the `Heating` tag and the `Heating Control` tag. The second one is important so that the proximity schedule fires the ADC automations to adjust the temperature based on the distance of people from home.
 
 
 
