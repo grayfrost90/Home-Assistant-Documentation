@@ -2,10 +2,11 @@
 Each room requires a set of helpers and automations for the heating to work. This is primarily driven through the Advanced Heating Control (ADC) Blueprint.
 
 ## Helpers
-There are 3 helpers that a room requires:
+There are 4 helpers that a room requires:
 1. [Comfort Temp](#comfort-temp), named `AHC - <Room> Comfort Temp`. Used by ADC to set the target temperature for the room
 2. [Schedule Normal](#schedule-normalholiday), named `AHC - <Room> Schedule Normal`. A Schedule helper that tells ADC when to turn the heating on, if the [Heating Mode](global_configurations.md#heating-mode) is set to Normal
 3. [Schedule Holiday](#schedule-normalholiday) named `AHC - <Room> Schedule Holiday`. A Schedule helper that tells ADC when to turn the heating on, if the [Heating Mode](global_configurations.md#heating-mode) is set to Schedule
+4. [Boost Timer](#boost-timer), named `AHC - <Room> Boost 25`. This tells the room to boost to 25°C for 30minutes.
 
 ### Comfort Temp
 This is an input_number helper and should be configured as follows:
@@ -37,6 +38,17 @@ Once created, update the helpers with the following:
 - Category: `Heating`
 - Label: `Heating`
 - Area: The area specific for the helper created
+
+### Boost Timer
+Each room has it's own boost timer that allows a short boost of the TRV to maximum temperature. The helpers are configured as follows:
+
+|Field|Input|
+|---|---|
+|Name|`AHC - <Room> Boost 25`|
+|Icon|`mdi:rocket-launch`|
+|Time|`00:30:00`|
+
+It is important that the Name contains the `25` at the end as this is what AHC uses to set the boost temperature. Each helper should be added to the Heating Category and have the labels `Heating` and `Heating Boost`. `Heating Boost` is used for the 'Boost all Rooms' button in the dashboard.
 
 ## Automations
 Each Room requires the following automations:
