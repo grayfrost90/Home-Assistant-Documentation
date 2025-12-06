@@ -92,12 +92,12 @@ Using the [Proximity](https://www.home-assistant.io/integrations/proximity) inte
 |Zone  |Distance	| Temperature Difference |
 |----- |----------|------------------------|
 |Zone0 |0         |0                       |
-|Zone1 |3000	    |1                       |
-|Zone2 |7500	    |2                       |
-|Zone3 |15000	    |3.5                     |
-|Zone4 |30000	    |5                       |
-|Zone5 |64000	    |6.5                     |
-|Zone6 |64001+	  |13                      |
+|Zone1 |5000	    |0.5                     |
+|Zone2 |20000	    |1                       |
+|Zone3 |64000	    |2                       |
+|Zone4 |100000	  |3                       |
+|Zone5 |136000	  |6                       |
+|Zone6 |136000+	  |13                      |
 
 Setting Zone6 to be 12 will ensure that, regardless of the target temp, the resulting value of `target temp - away temp adjustment` will always be less than 12, and therefore the away temp adjustment in [AHC](/docs/heating/room_configurations.md#advanced-heating-control) will set the temp to 12.
 
