@@ -149,7 +149,7 @@ Each room with a TRV needs an ADC Blueprint Automation configured as follows:
 8. Under the Away Mode section, toggle the Schdeuler Away Mode to `On`. Notice how there is no Away Temperature Offset configured? This is because this is handled by YAML. Switch to YAML view for the automation and add the following code:
 ```
     input_away_offset: >
-      {% set offset = states('input_number.ahc_away_temp_adjustment') | int %}
+      {% set offset = states('input_number.ahc_away_temp_adjustment') | float %}
       {% set temperature = states(input_temperature_comfort) | float %}
       {% if temperature - offset <= 12 %}
         {{ temperature - 12 }}
