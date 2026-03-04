@@ -86,6 +86,7 @@ Add in a condition that checks if the schedules are on. This stops errors in the
 The actions that take place depend on the state of the Holiday Heating Helper
 1) If the Holiday Heating switch is on, then Set the Comfort temp to be the value of the `target_temp` in the Holiday Schedule
 2) If the Holiday Heating switch is of, then Set the Comfort temp to be the value of the `target_temp` in the Normal Schedule
+3) Finally, the `AHC - Global Temp Adjust` input helper is added to the comfort temp. This allows a general reduction, or boost of all the rooms.
 
 ```
 actions:
