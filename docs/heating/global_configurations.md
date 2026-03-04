@@ -6,6 +6,7 @@ There are 4 global helpers that control settings across the whole house:
 3. [Holiday Heating](#holiday-heating)
 4. [Main Heating Switch](#main-heating-switch)
 5. [Away Temp Adjustment](#away-temp-adjustment)
+6. [Global Temp Adjustment](#global-temp-adjustment)
 
 ### Home
 This is a template binary sensor that will return the inverse value of the Away helper. This is used in AHC to activate Guest mode if all tracked people are away. Manually setting the house to Home in the occupancy dashboard screen will set this entity to True.
@@ -28,6 +29,9 @@ Heating will only take place when this switch is on
 
 ### Away Temp Adjustment
 Set by the [Proximity Update](#proximity-update) automation to adjust the away temperature
+
+### Global Temp Adjustment
+Input helper that adjusts the temperature of all room TRVs by adding it to the comfort temp
 
 ## Automations
 There are 3 global automations:
