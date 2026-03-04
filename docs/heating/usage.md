@@ -2,6 +2,7 @@
 - [Heating schedules](#heating-schedules)
 - [Heating Mode](#heating-mode)
 - [Away behaviour](#away-behaviour)
+- [Global Temp Adjustment](#global-temp-adjustment)
 - Manual override
 
 ## Heating Schedules
@@ -37,3 +38,12 @@ There are a few factors that change and affect what happens to the heating when 
 Upon entering away mode, the heating will do the following:
 1) **Proximity:** As the nearest person to home moves away from home, the target temperature of all rooms will drop, eventually reaching 12C, if they are far enough from home
 2) **Time:** Regardless of proximity, if all people are away from home for more than 1 day, then the target temperature of all rooms will be set to 12C. This will result in the house not pre-heating on return **(something I need to look at)**
+
+## Global Temp Adjustment
+Whilst the target temp of all rooms can be set in the room schedule, you can adjust this globally with the `AHC - Global Temp Adjustment` input helper. This is found in the heating page:
+
+<img width="404" height="354" alt="image" src="https://github.com/user-attachments/assets/df99a6cf-bcbf-4333-852a-81d19b6e36e1" />
+
+Upon adjust the temperature, when a room next checks in, it will pick up this adjustment. If the global adjustment is configured, the heating badge on the dashboard homepage will show a badge indicating this:
+
+<img width="156" height="82" alt="image" src="https://github.com/user-attachments/assets/7892dbda-e23f-4751-9319-ba3840feee8e" />
