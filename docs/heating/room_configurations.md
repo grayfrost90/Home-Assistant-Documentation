@@ -100,7 +100,8 @@ actions:
             data:
               value: >-
                 {{ state_attr('schedule.ahc_study_schedule_normal',
-                'target_temp') }}
+                'target_temp') | float +
+                states('input_number.ahc_global_temp_adjustment') | float }}
             target:
               entity_id: input_number.ahc_study_comfort_temp
       - conditions:
@@ -113,7 +114,8 @@ actions:
             data:
               value: >-
                 {{ state_attr('schedule.ahc_study_schedule_holiday',
-                'target_temp') }}
+                'target_temp') | float +
+                states('input_number.ahc_global_temp_adjustment') | float }}
             target:
               entity_id: input_number.ahc_study_comfort_temp
 ```
